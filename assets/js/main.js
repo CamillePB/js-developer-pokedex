@@ -31,7 +31,7 @@ function convertPokemonToLi(pokemon) {
 
             <span>Peso:${pokemon.weight}00g</span>
             </br>
-            <span>Altura:0.${pokemon.height}m</span>
+            <span>Altura:${pokemon.height}0cm</span>
             </br>
             <span>Experiencia Base:${pokemon.base_experience}</span>
             </div>
