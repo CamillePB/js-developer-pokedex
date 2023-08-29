@@ -19,9 +19,35 @@ function convertPokemonToLi(pokemon) {
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
             </div>
+            <a href="javascript:;" onmousedown="toggleDiv('${pokemon.number}');">
+            expandir</a>
+          
+            
+            <div id="${pokemon.number}" style="display:none">
+            Habilidades:
+            <ol class="types">
+            ${pokemon.abilities.map((ability) => `<li class="type ${ability}">${ability}</li>`).join('')}
+        </ol>
+
+            <span>Peso:${pokemon.weight}00g</span>
+            </br>
+            <span>Altura:0.${pokemon.height}m</span>
+            </br>
+            <span>Experiencia Base:${pokemon.base_experience}</span>
+            </div>
         </li>
     `
 }
+
+//div expansível   
+function toggleDiv(divid){
+    if(document.getElementById(divid).style.display == 'none'){
+      document.getElementById(divid).style.display = 'block';
+     
+    }else{
+      document.getElementById(divid).style.display = 'none';
+    }
+  }
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
